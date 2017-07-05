@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response
 from django.shortcuts import HttpResponse
 import json
-
+from phillyzto.order.models import Order
 
 def index(request):
     return render_to_response('waybill.html', {})
@@ -16,18 +16,20 @@ def get_order_details(request, order_id):
     :return:
     """
     try:
-        result = {}
-        # TODO chenhaiou
-        if order_id != 'JW052302':
+        result = { 'msg': ''}
+        order_obj = Order.objects.filter(express_number=order_id)
+        if not order_obj:
             result = {'msg': u'请输入正确的快递单号(JW052302)'}
             return HttpResponse(json.dumps(result))
+        else:
+            order_obj = order_obj[0]
 
         result['data'] = {
             'msg': '',
-            'express_number': order_id,
-            'consignee_name': u'邓莎',
-            'status': u'清关中',
-            'tracking_number': u'无',
+            'express_number': order_obj.express_number,
+            'consignee_name': order_obj.consignee_name,
+            'status': order_obj.status,
+            'tracking_number': order_obj.tracking_number,
         }
     except:
         result = {'msg': u'服务器出错'}
