@@ -1,10 +1,97 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link href="/static/content/site.css" rel="stylesheet"/>
+    <script src="/static/script/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="//res.layui.com/layui/build/css/layui.css" media="all">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
-<body>
+<body class="body-customer">
+{% verbatim %}
+
+
+    <div class="body-content">
+    <div style="color: white;">
+    <h1>订单查询</h1>
+    订单号：
+    <textarea rows="2" cols="20" id="order_id" style="height:100px;width:478px;"></textarea>
+    <br />
+    <input type="submit" value="提交" id="get_order_details" class="btn blue" />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+    </div>
+    </div>
+    <hr />
+        <div id="show_order">
+            <table class="layui-table" v-bind:style="styleObject">
+                  <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col width="200">
+                    <col width="200">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>快递单号</th>
+                      <th>收件人名字</th>
+                      <th>包裹状态</th>
+                      <th>转运单号</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ details.express_number }}</td>
+                      <td>{{ details.consignee_name }}</td>
+                      <td>{{ details.status }}</td>
+                      <td>{{ details.tracking_number }}</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        var show_order = new Vue({
+          el: '#show_order',
+          data: {
+            details: {},
+            styleObject:{
+                'display':'none',
+            },
+          }
+        })
+    </script>
+
+    <script>
+        $("#get_order_details").click(function(){
+            url = '/order/' + document.getElementById("order_id").value
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: "json",
+                success: function(data){
+                    msg = data.msg
+                    if(msg){
+                        alert(msg)
+                    }else{
+                        show_order.styleObject.display = 'table-row-group'
+                        show_order.details = data.data
+                    }
+                },
+                error: function(data) {
+                    alert('服务器通信异常');
+                }
+            });
+        });
+    </script>
+
+{% endverbatim %}
 
 </body>
 </html>
