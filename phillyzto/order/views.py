@@ -19,7 +19,7 @@ def get_order_details(request, order_id):
         result = { 'msg': ''}
         order_obj = Order.objects.filter(express_number=order_id)
         if not order_obj:
-            result = {'msg': u'请输入正确的快递单号(JW052302)'}
+            result = {'msg': u'请输入正确的快递单号'}
             return HttpResponse(json.dumps(result))
         else:
             order_obj = order_obj[0]
