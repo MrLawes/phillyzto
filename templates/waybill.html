@@ -8,17 +8,48 @@
     <script src="/static/script/jquery-1.8.3.min.js"></script>
     <link rel="stylesheet" href="//res.layui.com/layui/build/css/layui.css" media="all">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body class="body-customer">
 {% verbatim %}
 
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" >
+      <div class="container" style="background-color:white;width:100%;height: 87px;">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="javascript:void(0)" class="navbar-brand"><img style="margin-left:19px;height:55px;margin-top:2px;" src="/static/content/HW.jpg"/></a>
+        </div>
+        <div class="navbar-header" style="margin-top:18px;">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="javascript:void(0)" class="navbar-brand">H&W中美快递</a>
+        </div>
+      </div>
+    </header>
+
     <div class="body-content">
     <div style="color: white;">
-    <h1>订单查询</h1>
-    订单号：
-    <textarea rows="2" cols="20" id="order_id" style="height:100px;width:478px;"></textarea>
-    <br />
-    <input type="submit" value="提交" id="get_order_details" class="btn blue" />
+        <div style="margin-left:2%;">
+            <div class="form-group">
+                <label for="exampleInputEmail1">订单号查询</label>
+            </div>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">订单号：</label>
+                    <input type="text" class="form-control" placeholder="订单号" id="order_id" style="width: 300px;">
+                </div>
+            </form>
+            <br />
+            <input type="submit" value="提交" id="get_order_details" class="btn blue" />
+        </div>
     <br />
     <br />
     <br />
@@ -27,8 +58,8 @@
     </div>
     </div>
     <hr />
-        <div id="show_order">
-            <table class="layui-table" v-bind:style="styleObject">
+        <div id="show_order" style="margin-left:2%;">
+            <table class="layui-table" v-bind:style="styleObject" style="display: none">
                   <colgroup>
                     <col width="150">
                     <col width="200">
@@ -69,24 +100,29 @@
 
     <script>
         $("#get_order_details").click(function(){
-            url = '/order/' + document.getElementById("order_id").value
-            $.ajax({
-                url: url,
-                type: 'GET',
-                dataType: "json",
-                success: function(data){
-                    msg = data.msg
-                    if(msg){
-                        alert(msg)
-                    }else{
-                        show_order.styleObject.display = 'table-row-group'
-                        show_order.details = data.data
+            order_id_value = document.getElementById("order_id").value
+            if(order_id_value){
+                url = '/order/' + order_id_value
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (data) {
+                        msg = data.msg
+                        if (msg) {
+                            alert(msg)
+                        } else {
+                            show_order.styleObject.display = 'table-row-group'
+                            show_order.details = data.data
+                        }
+                    },
+                    error: function (data) {
+                        alert('服务器通信异常');
                     }
-                },
-                error: function(data) {
-                    alert('服务器通信异常');
-                }
-            });
+                });
+            }else{
+                alert('请输入订单号');
+            }
         });
     </script>
 
