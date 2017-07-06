@@ -5,10 +5,13 @@
     <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link href="/static/content/site.css" rel="stylesheet"/>
-    <script src="/static/script/jquery-1.8.3.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//res.layui.com/layui/build/css/layui.css" media="all">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery-ui-bootstrap/0.5pre/assets/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body class="body-customer">
 {% verbatim %}
@@ -48,7 +51,7 @@
                 </div>
             </form>
             <br />
-            <input type="submit" value="提交" id="get_order_details" class="btn blue" />
+            <button type="button" id="get_order_details" class="btn btn-primary" data-loading-text="查询中..." autocomplete="off">提交</button>
         </div>
     <br />
     <br />
@@ -99,7 +102,7 @@
     </script>
 
     <script>
-        $("#get_order_details").click(function(){
+        $("#get_order_details").on('click', function(){
             order_id_value = document.getElementById("order_id").value
             if(order_id_value){
                 url = '/order/' + order_id_value
@@ -111,6 +114,7 @@
                         msg = data.msg
                         if (msg) {
                             alert(msg)
+                            show_order.styleObject.display = 'none'
                         } else {
                             show_order.styleObject.display = 'table-row-group'
                             show_order.details = data.data
@@ -125,6 +129,7 @@
             }
         });
     </script>
+
 
 {% endverbatim %}
 
