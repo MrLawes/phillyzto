@@ -5,9 +5,12 @@ body {
 }
 
 .body-customer {
-    background-image: url("bg1.jpg");
+    background-image: url("d.jpg");
     background-repeat: no-repeat;
-    height: 100%;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    background-size:100%;
 }
 
 /* Wrapping element */
@@ -35,3 +38,4 @@ textarea {
         padding: 0;
     }
 }
+

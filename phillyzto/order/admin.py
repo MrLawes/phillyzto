@@ -8,16 +8,16 @@ from import_export import resources
 
 class OrderResource(resources.ModelResource):
 
-    def get_export_headers(self):
-        """ 使用 models 字段中的 verbose_name
-        :return:
-        """
-        headers = []
-        for field in self.get_fields():
-            for col in self.Meta.model._meta._get_fields_cache.values()[0]:
-                if (col.name == field.column_name):
-                    headers.append(col.verbose_name)
-        return headers
+#    def get_export_headers(self):
+#        """ 使用 models 字段中的 verbose_name
+#        :return:
+#        """
+#        headers = []
+#        for field in self.get_fields():
+#            for col in self.Meta.model._meta._get_fields_cache.values()[0]:
+#                if (col.name == field.column_name):
+#                    headers.append(col.verbose_name)
+#        return headers
 
 
     class Meta:
