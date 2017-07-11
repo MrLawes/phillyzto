@@ -5,7 +5,7 @@ body {
 }
 
 .body-customer {
-    background-image: url("d.jpg");
+    background-image: url("bg.jpg");
     background-repeat: no-repeat;
     -moz-background-size:cover;
     -webkit-background-size:cover;
