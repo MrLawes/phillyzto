@@ -1,0 +1,7 @@
+<uwsgi>
+  <socket>127.0.0.1:7433</socket>
+  <module>wsgi</module>
+  <daemonize>log/phillyzto.log</daemonize>
+  <buffer-size>16384</buffer-size>
+  <processes>8</processes>
+</uwsgi>
