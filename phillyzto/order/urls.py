@@ -6,5 +6,5 @@ from phillyzto.order.views import index
 
 urlpatterns = [
     url(r'^(?P<order_id>\w+)/$', get_order_details, name='admin_get_order_details'),
-    url(r'^$', index, name='admin_index'),
+    url(r'^$', index, name='order_index'),
 ]
