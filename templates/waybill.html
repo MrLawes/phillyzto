@@ -103,7 +103,7 @@
         $("#get_order_details").on('click', function(){
             order_id_value = document.getElementById("order_id").value
             if(order_id_value){
-                url = '/order/' + order_id_value
+                url = '/order/' + order_id_value + '/'
                 $.ajax({
                     url: url,
                     type: 'GET',
