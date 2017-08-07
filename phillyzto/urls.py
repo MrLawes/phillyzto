@@ -17,9 +17,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from phillyzto.order.views import index
+from phillyzto.data import urls as data_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^data/', include(data_urls)),
     url(r'^order/', include('phillyzto.order.urls')),
     url(r'', index, name='index'),
 ]
