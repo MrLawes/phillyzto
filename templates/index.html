@@ -7,354 +7,240 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="icon" type="image/png" href="https://dl6fh5ptkejqa.cloudfront.net/0482a3c938673192a591f2845b9eb275.png">
 <link href="/static/css/80b11b7c447d646299b71f6de731cc9e.css" rel="stylesheet" type="text/css">
-<script src="/static/js/863117047105619" async=""></script>
-<script src="/static/js/fbevents.js" async=""></script>
 <script async="" src="/static/js/analytics.js"></script>
-<script src="/static/js/mys2uzu.js" async=""></script>
 <script src="/static/js/urlrequests.js"></script>
 <script src='http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js'></script>
 <script src="https://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
-<script>
-(function(d) {
-    var config = {
-    kitId: 'mys2uzu',
-    scriptTimeout: 3000,
-    async: true
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-    })(document);
-</script>
+<script src="/static/vue/vue.js"></script>
+<script src="/static/vue/index_vue.js"></script>
+
 <style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}.tk-brandon-grotesque{font-family:"brandon-grotesque",sans-serif;}</style><style type="text/css">@font-face{font-family:tk-proxima-nova-n6;src:url(https://use.typekit.net/af/153d6b/0000000000000000000148a6/21/l?subset_id=2&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/153d6b/0000000000000000000148a6/21/d?subset_id=2&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/153d6b/0000000000000000000148a6/21/a?subset_id=2&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}@font-face{font-family:tk-proxima-nova-n4;src:url(https://use.typekit.net/af/f794fc/0000000000000000000148a4/21/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/f794fc/0000000000000000000148a4/21/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/f794fc/0000000000000000000148a4/21/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-proxima-nova-n3;src:url(https://use.typekit.net/af/611614/0000000000000000000148a2/21/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/611614/0000000000000000000148a2/21/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/611614/0000000000000000000148a2/21/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:tk-brandon-grotesque-n4;src:url(https://use.typekit.net/af/dc695b/0000000000000000000132df/21/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/dc695b/0000000000000000000132df/21/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/dc695b/0000000000000000000132df/21/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:tk-brandon-grotesque-n7;src:url(https://use.typekit.net/af/b54b90/0000000000000000000132e3/21/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/b54b90/0000000000000000000132e3/21/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/b54b90/0000000000000000000132e3/21/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:tk-brandon-grotesque-n5;src:url(https://use.typekit.net/af/e9e0e2/0000000000000000000132e1/21/l?subset_id=2&fvd=n5&v=3) format("woff2"),url(https://use.typekit.net/af/e9e0e2/0000000000000000000132e1/21/d?subset_id=2&fvd=n5&v=3) format("woff"),url(https://use.typekit.net/af/e9e0e2/0000000000000000000132e1/21/a?subset_id=2&fvd=n5&v=3) format("opentype");font-weight:500;font-style:normal;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/153d6b/0000000000000000000148a6/21/l?subset_id=2&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/153d6b/0000000000000000000148a6/21/d?subset_id=2&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/153d6b/0000000000000000000148a6/21/a?subset_id=2&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/f794fc/0000000000000000000148a4/21/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/f794fc/0000000000000000000148a4/21/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/f794fc/0000000000000000000148a4/21/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/611614/0000000000000000000148a2/21/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/611614/0000000000000000000148a2/21/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/611614/0000000000000000000148a2/21/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:brandon-grotesque;src:url(https://use.typekit.net/af/dc695b/0000000000000000000132df/21/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/dc695b/0000000000000000000132df/21/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/dc695b/0000000000000000000132df/21/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:brandon-grotesque;src:url(https://use.typekit.net/af/b54b90/0000000000000000000132e3/21/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/b54b90/0000000000000000000132e3/21/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/b54b90/0000000000000000000132e3/21/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:brandon-grotesque;src:url(https://use.typekit.net/af/e9e0e2/0000000000000000000132e1/21/l?subset_id=2&fvd=n5&v=3) format("woff2"),url(https://use.typekit.net/af/e9e0e2/0000000000000000000132e1/21/d?subset_id=2&fvd=n5&v=3) format("woff"),url(https://use.typekit.net/af/e9e0e2/0000000000000000000132e1/21/a?subset_id=2&fvd=n5&v=3) format("opentype");font-weight:500;font-style:normal;}</style>
 </head>
 <body class="is-mac has-link one-or-more-links">
-<div class="stage">
+    <div class="stage">
 
 
-<header id="header" data-template="stage-header" class="">
-<div id="header-inner" class="">
-<div class="container container-pod container-pod-short">
-<nav class="navigation" role="navigation">
-</nav>
-<div class="header-button-wrapper">
-<a class="header-login" href="">登陆</a>
-<a class="header-signup" href="">注册</a>
-</div>
-<div class="mobile-sign-in">
-<a class="login" href="">登录</a>
-<a class="signup" href="">注册</a>
-<a id="header-mobile-menu-button" href="">
-<i class="icon-menu-open"></i>
-</a>
-</div>
-</div>
-
-</div>
-</header>
-
-<div id="container" class="clearfix">
-
-<div class="container container-pod shorten-container">
-<h1 class="page-title t-center">链接，连接信息知道所有。你应该拥有</h1>
-<div class="join-bitly t-center">衡量您与世界领先的链接管理平台</div>
-<div class="signup-learn-more-mobile t-center mid-container">
-<a href="" class="header-login">登陆</a>
-<a class="header-login no-right-margin" href="">免费注册</a>
-</div>
-<div id="form_container" class="t-center mid-container foot-room shorten_active">
-<form method="POST" action="" name="shortenUrl" id="unAuthShortenForm">
-<fieldset class="cf">
-<input id="shorten_url" taborder="1" name="url" type="text" class="shorten-input" placeholder="创建短链请输入链接缩短" value="" autocomplete="off" autocorrect="off" autocapitalize="off">
-<input id="shorten_btn" type="submit" class="button button-primary button-large shorten-button" value="Shorten">
-</fieldset>
-</form>
-    <div id="shorten_actions">
-        <span class="info">Paste another long URL to shorten it</span>
-        <a href="" id="clear_active_shorten" class="close" title="Clear shorten box and preview">X</a>
-        <input class="copy-input" value="http://bit.ly/1EWeEOy" tabindex="-1" readonly="">
-        <a id="copy_shortlink" class="button primary hover">创建</a>
+    <header id="header" data-template="stage-header" class="">
+    <div id="header-inner" class="">
+    <div class="container container-pod container-pod-short">
+    <nav class="navigation" role="navigation">
+    </nav>
+    <div class="header-button-wrapper">
+    <a class="header-login" href="">登陆</a>
+    <a class="header-signup" href="">注册</a>
     </div>
-</div>
-<div class="signup-learn-more t-center">
-<a id="top-signup-cta" class="header-login" href="">免费注册</a>
-<a id="top-learn-more-cta" href="" class="learn-more">or Learn more <i class="white-arrow-small"></i></a>
-</div>
-<div class="link-container mid-container">
+    <div class="mobile-sign-in">
+    <a class="login" href="">登录</a>
+    <a class="signup" href="">注册</a>
+    <a id="header-mobile-menu-button" href="">
+    <i class="icon-menu-open"></i>
+    </a>
+    </div>
+    </div>
 
-<script src="/static/js/clipboard.min.js"></script>
-<script>
-    new Clipboard('.clipboard');
-</script>
+    </div>
+    </header>
 
-<div id="shortened_info">
-    <ul id="most_recent_link" class="anon_history footroom">
-        <li id="1EWeEOy" class="shortened_link" data-user_hash="1EWeEOy" data-short_link="http://bit.ly/1EWeEOy" style="display: list-item; opacity: 1; overflow: hidden;">
-            <div class="unauth-title">
-                <a class="article-title" href="https://www.baidu.com/">baidu.com/</a>
-            </div>
-            <div class="unauth-title-url">
-                <a class="article-title smaller" href="https://www.baidu.com/">baidu.com/</a>
-            </div>
-            <div class="unauth_capsule clearfix">
-                <a class="short-url" href="">http://bit.ly/1EWeEOy</a>
-                <input id="shorten_url_1" class="copy-input" value="http://bit.ly/1EWeEOy" tabindex="-1" readonly="">
-                <button href="" class="clipboard copy button primary" data-clipboard-target="#shorten_url_1">Copy</button>
-                <a class="info_page" href="">
-                    <i class="default fa fa-bar-chart-o"></i> 1,443
-                </a>
-            </div>
-        </li>
+    <div id="container" class="clearfix">
+
+    <div class="container container-pod shorten-container">
+    <h1 class="page-title t-center">链接，连接信息知道所有。你应该拥有</h1>
+    <div class="join-bitly t-center">衡量您与世界领先的链接管理平台</div>
+    <div class="signup-learn-more-mobile t-center mid-container">
+    <a href="" class="header-login">登陆</a>
+    <a class="header-login no-right-margin" href="">免费注册</a>
+    </div>
+    <div id="form_container" class="t-center mid-container foot-room shorten_active">
+    <form method="POST" action="" name="shortenUrl" id="unAuthShortenForm">
+    <fieldset class="cf">
+    <input id="shorten_url" taborder="1" name="url" type="text" class="shorten-input" placeholder="创建短链请输入链接缩短" value="" autocomplete="off" autocorrect="off" autocapitalize="off">
+    <input id="shorten_btn" type="submit" class="button button-primary button-large shorten-button" value="Shorten">
+    </fieldset>
+    </form>
+        <div id="shorten_actions">
+            <span class="info">Paste another long URL to shorten it</span>
+            <a href="" id="clear_active_shorten" class="close" title="Clear shorten box and preview">X</a>
+            <input class="copy-input" value="http://bit.ly/1EWeEOy" tabindex="-1" readonly="">
+            <a id="copy_shortlink" class="button primary hover">创建</a>
+        </div>
+    </div>
+    <div class="signup-learn-more t-center">
+    <a id="top-signup-cta" class="header-login" href="">免费注册</a>
+    <a id="top-learn-more-cta" href="" class="learn-more">or Learn more <i class="white-arrow-small"></i></a>
+    </div>
+    <div class="link-container mid-container">
+
+    <script src="/static/js/clipboard.min.js"></script>
+    <script>
+        new Clipboard('.clipboard');
+    </script>
+
+    {% verbatim %}
+        <div id="shortened_info">
+            <ul class="anon_history footroom" v-for="history in histories">
+                <li class="shortened_link" data-user_hash="1EWeEOy" data-short_link="http://bit.ly/1EWeEOy" style="display: list-item; opacity: 1; overflow: hidden;">
+                    <div class="unauth-title-url">
+                        <a class="article-title smaller" v-bind:href="history.long_url" target="_blank">{{ history.long_url }}</a>
+                    </div>
+                    <div class="unauth_capsule clearfix">
+                        <a class="short-url" href="">{{ history.url }}</a>
+                        <input v-bind:id="'shorten_url_'+history.hash" class="copy-input" v-bind:value="history.url" tabindex="-1" readonly="">
+                        <button href="" class="clipboard copy button primary" v-bind:data-clipboard-target="'#shorten_url_'+history.hash">复制</button>
+                        <a class="info_page" href="">
+                            <i href="" class="default fa fa-bar-chart-o"></i>{{ history.clicks }}
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    {% endverbatim %}
+
+    <div>
+    <ul id="anon_history" class="anon_history"></ul>
+    </div>
+    </div>
+    </div>
+
+    <div id="bottom">
+
+    <form action="" method="get">
+    <input type="hidden" name="_xsrf" value="c2bebf9dd6a54f21aefe0411509cba32">
+    </form>
+
+    </div>
+    </div>
+
+    <div class="container container-pod container-pod-tall overview">
+    <div class="mid-container t-center">
+    <h2 class="flush-top main-header">释放链接的力量</h2>
+    <p class="main-subheader">
+    在每个渠道和每个平台链接无处不在，
+    小而美短链接生成器，可以让您在互联网上做更多的事。
+    </p>
+    </div>
+    <div class="page-shorten-brand-tools-products">
+    <div class="page-shorten-brand-tools-product col-spill">
+    <i class="main-icon main-icon-shorten">
+    </i>
+    <h3 class="short">Shorten</h3>
+    <div>
+    <a href="">Learn More <i class="orange-arrow-small"></i></a>
+    </div>
+    <p></p>
+    </div>
+    <div class="page-shorten-brand-tools-product col-spill">
+    <i class="main-icon main-icon-measure"></i>
+    <h3 class="short">Measure</h3>
+    <p class="flush-bottom">
+    Track individual link analytics, gather audience intelligence and measure campaign performance in one location.
+    </p><div>
+    <a href="">Learn More <i class="orange-arrow-small"></i></a>
+    </div>
+    <p></p>
+    </div>
+    <div class="page-shorten-brand-tools-product col-spill">
+    <i class="main-icon main-icon-share"></i>
+    <h3 class="short">Optimize</h3>
+    <p class="flush-bottom">
+    Collect insights on your performance and optimize your marketing efforts to better fit your audience needs.
+    </p><div>
+    <a href="">Learn More <i class="orange-arrow-small"></i></a>
+    </div>
+    <p></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <footer id="footer" role="contentinfo" data-template="stage-footer">
+    <section class="stage-pod">
+    <div class="container container-pod t-center">
+    <div class="footer-links">
+    <ul id="menu-footer-menu" class="nav footer-nav clearfix">
+
+    <li><a href="">@2017 小而美短链</a></li>
+    <li><a href="">沪ICP备10023311号</a></li>
+    <li><a href="">沪公网安备23849252523942908号</a></li>
+    <li><a href="">隐私声明Cookie</a></li>
+    <li><a href="">法律声明</a></li>
+    <li><a href="">广告</a></li>
+    <li><a href="">举报问题</a></li>
+    <li><a href="">帮助</a></li>
+    <li><a href="">反馈</a></li>
     </ul>
-    <ul id="most_recent_link" class="anon_history footroom">
-        <li id="1EWeEOy" class="shortened_link" data-user_hash="1EWeEOy" data-short_link="http://bit.ly/1EWeEOy" style="display: list-item; opacity: 1; overflow: hidden;">
-            <div class="unauth-title">
-                <a class="article-title" href="https://www.baidu.com/">baidu.com/</a>
-            </div>
-            <div class="unauth-title-url">
-                <a class="article-title smaller" href="https://www.baidu.com/">baidu.com/</a>
-            </div>
-            <div class="unauth_capsule clearfix">
-                <a class="short-url" href="">http://bit.ly/1EWeEOy</a>
-                <input class="copy-input" value="http://bit.ly/1EWeEOy" tabindex="-1" readonly="">
-                <a href="" class="copy button primary">Copy</a>
-                <a class="info_page" href="">
-                    <i class="default fa fa-bar-chart-o"></i> 1,443
-                </a>
-            </div>
-        </li>
-    </ul>
-</div>
-<div>
-<ul id="anon_history" class="anon_history"></ul>
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </section>
+    </footer>
+    </div>
 
-<div id="bottom">
+    <script type="text/javascript">
+    if(!window.console) window.console={};
+    if(!window.console.log) window.console.log = function(){};
+    (function() {
+    var _x = document.cookie.match("\\b\_xsrf=([^;]*)\\b"),
+    _x = (_x ? _x[1] : undefined);
+    $.ajaxSetup({
+    cache : false,
+    traditional : true,
+    timeout : 12000,
+    beforeSend : function(XMLHttpRequest) {
+    XMLHttpRequest.setRequestHeader("X-XSRFToken", _x);
+    }
+    });
+    })();
+    window.fastSearch = {};
+    </script>
 
-<form action="" method="get">
-<input type="hidden" name="_xsrf" value="c2bebf9dd6a54f21aefe0411509cba32">
-</form>
+    <script>
+    $('#header-mobile-menu-button').click( function() {
+    $('#stage-sidebar').toggleClass('open');
+    $('.stage').toggleClass('open');
+    })
+    </script>
 
-</div>
-</div>
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','/static/js/fbevents.js','ga');
+    (function(w,d) {
+    var gaId = 'UA-25224921-3';
+    var accountType = 'user';
+    w.ga('create', gaId, 'auto');
+    w.ga('set', 'dimension2', accountType);
+    w.ga('send', 'pageview');
+    })(window,document);
+    </script>
 
-<div class="container container-pod container-pod-tall overview">
-<div class="mid-container t-center">
-<h2 class="flush-top main-header">释放链接的力量</h2>
-<p class="main-subheader">
-在每个渠道和每个平台链接无处不在，
-小而美短链接生成器，可以让您在互联网上做更多的事。
-</p>
-</div>
-<div class="page-shorten-brand-tools-products">
-<div class="page-shorten-brand-tools-product col-spill">
-<i class="main-icon main-icon-shorten">
-</i>
-<h3 class="short">Shorten</h3>
-<div>
-<a href="">Learn More <i class="orange-arrow-small"></i></a>
-</div>
-<p></p>
-</div>
-<div class="page-shorten-brand-tools-product col-spill">
-<i class="main-icon main-icon-measure"></i>
-<h3 class="short">Measure</h3>
-<p class="flush-bottom">
-Track individual link analytics, gather audience intelligence and measure campaign performance in one location.
-</p><div>
-<a href="">Learn More <i class="orange-arrow-small"></i></a>
-</div>
-<p></p>
-</div>
-<div class="page-shorten-brand-tools-product col-spill">
-<i class="main-icon main-icon-share"></i>
-<h3 class="short">Optimize</h3>
-<p class="flush-bottom">
-Collect insights on your performance and optimize your marketing efforts to better fit your audience needs.
-</p><div>
-<a href="">Learn More <i class="orange-arrow-small"></i></a>
-</div>
-<p></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','/static/js/fbevents.js');
+    fbq('init', '863117047105619');
+    fbq('track', "PageView");
+    </script>
 
-<footer id="footer" role="contentinfo" data-template="stage-footer">
-<section class="stage-pod">
-<div class="container container-pod t-center">
-<div class="footer-links">
-<ul id="menu-footer-menu" class="nav footer-nav clearfix">
-<li><a href="">@2017 小而美短链</a></li>
-<li><a href="">沪ICP备10023311号</a></li>
-<li><a href="">沪公网安备23849252523942908号</a></li>
-<li><a href="">隐私声明Cookie</a></li>
-<li><a href="">法律声明</a></li>
-<li><a href="">广告</a></li>
-<li><a href="">举报问题</a></li>
-<li><a href="">帮助</a></li>
-<li><a href="">反馈</a></li>
-</ul>
-</div>
-</div>
-</section>
-</footer>
-</div>
+    <script src="/static/js/oct.js" type="text/javascript"></script>
+    <script type="text/javascript">if(window.twttr){twttr.conversion.trackPid('l6rvc', { tw_sale_amount: 0, tw_order_quantity: 0 });}</script>
+    <noscript>
+    &lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l6rvc&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+    &lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l6rvc&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+    </noscript>
 
-<div id="stage-sidebar">
-<div id="stage-sidebar-scrollable" class="container-scrollable ps-container">
-<div class="container container-pod container-pod-short">
-<ul id="menu-mobile-menu" class="nav top-nav clearfix">
-<li><a href="">Home</a></li>
-<li><a href="">Tour</a></li>
-<li><a href="">Enterprise</a></li>
-<li><a href="">Resources</a></li>
-<li><a href="">Company</a></li>
-<li><a href="">Contact</a></li>
-<li><a href="">Careers</a></li>
-<li><a href="">Press Room</a></li>
-<li><a href="">Partners</a></li>
-</ul>
-</div>
-</div>
-</div>
+    <script src="/static/js/index_tail.js"></script>
+    <script src="/static/js/adsct" type="text/javascript"></script>
+    <script>
+        var shortened_vue = new Vue({
+          el: '#shortened_info',
+          data: {
+            histories: init_shortened_info(),
+          }
+        })
+    </script>
+</body>
 
-{#<script type="text/javascript" src="/static/js/jquery.min.js"></script>#}
-<script type="text/javascript">
-if(!window.console) window.console={};
-if(!window.console.log) window.console.log = function(){};
-(function() {
-var _x = document.cookie.match("\\b\_xsrf=([^;]*)\\b"),
-_x = (_x ? _x[1] : undefined);
-$.ajaxSetup({
-cache : false,
-traditional : true,
-timeout : 12000,
-beforeSend : function(XMLHttpRequest) {
-XMLHttpRequest.setRequestHeader("X-XSRFToken", _x);
-}
-});
-})();
-window.fastSearch = {};
-</script>
-
-<script>
-$('#header-mobile-menu-button').click( function() {
-$('#stage-sidebar').toggleClass('open');
-$('.stage').toggleClass('open');
-})
-</script>
-
-<script type="text/javascript">
-(function() {
-BITLY.tracking.statsd.setStatPrefix("page.signed_out_shorten", true);
-new App.Lib.PlaceholderShim("#shorten_url");
-BITLY.unauth_shorten.init( "", {
-'target_form' : "#unAuthShortenForm",
-'short_box' : "#shorten_url",
-'history_container' : "#anon_history",
-'history_delay': 3000
-});
-$("#shorten_url").focus();
-PromoModule.init();
-$('#page-home-link-shortener-counter').bitlyCount();
-$("#page-home-trust-quotes").carousel({
-speed : 8000,
-class_active : 'active',
-class_inactive : 'inactive',
-slide_animate_callback : function(){},
-navigation_option_previous : null,
-navigation_option_next : null,
-pagination : false,
-pagination_navigation : false,
-child_selector : '.page-home-trust-quote'
-});
-// brand-bar
-$("#page-about-values").carousel({
-speed : 10000,
-class_active : 'active',
-class_inactive : 'inactive',
-slide_animate_callback : function(){},
-navigation_option_previous : $('#page-about-values-navigation-previous'),
-navigation_option_next : $('#page-about-values-navigation-next'),
-pagination : false,
-pagination_navigation : false,
-child_selector : '.page-about-value'
-});
-var wrap = $("#header-inner");
-var header = $("#header");
-var $window = $(window);
-$window.scroll(function(e) {
-if ($window.scrollTop() > 400) {
-wrap.addClass("fixed-header bounceInDown");
-header.addClass("fixed-high-index");
-} else {
-wrap.removeClass("fixed-header bounceInDown");
-header.removeClass("fixed-high-index");
-}
-});
-//Add ga events tracking
-$("#promo-bitlink").bind('click', function() {
-window.ga('send','event', 'link-click', 'notification-link-click', 'Notification Click');
-});
-$("#top-signup-cta").bind('click', function() {
-window.ga('send','event', 'button-click', 'hp-sign-up-free', 'HP Sign Up for Free');
-});
-$("#top-learn-more-cta").bind('click', function() {
-window.ga('send','event', 'link-click', 'hp-learn-more-top', 'HP Top CTA Learn More');
-});
-$(".tour-cta").bind('click', function() {
-window.ga('send','event', 'button-click', 'hp-learn-more-mid', 'HP Mid CTA Learn More');
-});
-$(".counter-button").bind('click', function() {
-window.ga('send','event', 'button-click', 'hp-mid-cta-free', 'HP Mid CTA Free');
-});
-})();
-</script>
-
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','/static/js/fbevents.js','ga');
-(function(w,d) {
-
-var gaId = 'UA-25224921-3';
-
-
-var accountType = 'user';
-
-
-w.ga('create', gaId, 'auto');
-
-
-w.ga('set', 'dimension2', accountType);
-
-w.ga('send', 'pageview');
-
-})(window,document);
-</script>
-
-
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','/static/js/fbevents.js');
-fbq('init', '863117047105619');
-fbq('track', "PageView");
-</script>
-{#<noscript>&lt;img
-
-
-<script src="/static/js/oct.js" type="text/javascript"></script>
-<script type="text/javascript">if(window.twttr){twttr.conversion.trackPid('l6rvc', { tw_sale_amount: 0, tw_order_quantity: 0 });}</script>
-<noscript>
-&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l6rvc&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
-&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l6rvc&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
-</noscript>
-
-<script src="/static/js/index_tail.js"></script>
-<script src="/static/js/adsct" type="text/javascript"></script></body></html>
+</html>

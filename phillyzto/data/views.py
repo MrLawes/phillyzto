@@ -8,7 +8,8 @@ def shorten(request):
     long_url = request.GET.get('long_url', '')
     import hashlib
     hash = hashlib.md5(long_url).hexdigest()
-
+    if not 'http://' in long_url or not 'https://' in long_url:
+        long_url = 'http://' + long_url
     data = {
       "data": {
         "hash": hash[:6],

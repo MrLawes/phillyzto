@@ -9,6 +9,8 @@ $("#copy_shortlink").click(function(){
     new_create.long_url = shorten_data.data.long_url
     new_create.hash = shorten_data.data.hash
     new_create.url = shorten_data.data.url
+    var clicks = data_clicks(new_create.hash)[0].clicks
+    new_create.clicks = clicks
     var copy_shortlink_history = localStorage.getItem("copy_shortlink_history");
     if(!copy_shortlink_history){
         copy_shortlink_history = '{"data":[]}'
@@ -21,5 +23,8 @@ $("#copy_shortlink").click(function(){
     copy_shortlink_history.data = copy_shortlink_history.data.slice(0,3)
     var history_string = JSON.stringify(copy_shortlink_history)
     localStorage.setItem("copy_shortlink_history", history_string);
-    // # TODO vue add 下拉框
+    shortened_vue.histories.splice(0,0,new_create);
+    if(shortened_vue.histories.length>3){
+        shortened_vue.histories.pop()
+    }
 });

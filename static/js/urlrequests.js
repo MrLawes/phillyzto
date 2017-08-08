@@ -46,3 +46,31 @@ function data_shorten() {
     });
     return shorten_data
 }
+function data_clicks(hashs) {
+    var long_url = document.getElementById('shorten_url').value
+    host_url = '/data/clicks'
+    var result = {}
+    result.data = {}
+    result.data.clicks = []
+    for(var i=0;i<hashs.length;i++){
+        result.data.clicks[i] = {
+            "hash": hashs[i],
+            "clicks": 0,
+        }
+    }
+    $.ajax({
+        url: host_url,
+        type: 'GET',
+        dataType: "json",
+        data:{
+            'hash': hashs
+        },
+        success: function (data){
+            result.data = data.data
+        },
+        error: function (data){
+        },
+        async:false
+    });
+    return result.data.clicks
+}
