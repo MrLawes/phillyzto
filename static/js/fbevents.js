@@ -1,23 +1,3 @@
-/**
-* Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
-*
-* You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
-* copy, modify, and distribute this software in source code or binary form for use
-* in connection with the web services and APIs provided by Facebook.
-*
-* As with any software that integrates with the Facebook platform, your use of
-* this software is subject to the Facebook Platform Policy
-* [http://developers.facebook.com/policy/]. This copyright notice shall be
-* included in all copies or substantial portions of the software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-* FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-* COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-* IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-* CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-
 fbq.version="2.7.18";
 fbq.pendingConfigs=["global_config"];
 (function(a,b,c,d){var e={exports:{}},f=e.exports;(function(){var g=a.fbq;g.execStart=a.performance&&a.performance.now&&a.performance.now();if(!function(){var o=a.postMessage||function(){};if(!g){o({action:'FB_LOG',logType:'Facebook Pixel Error',logMessage:'Pixel code is not installed correctly on this page'},'*');if('error' in console)console.error('Facebook Pixel Error: Pixel code is not installed correctly on this page');return false;}return true;}())return;'use strict';if(!g.__fbeventsModules){g.__fbeventsModules={};g.__fbeventsResolvedModules={};g.getFbeventsModules=function(o){if(!g.__fbeventsResolvedModules[o])g.__fbeventsResolvedModules[o]=g.__fbeventsModules[o]();return g.__fbeventsResolvedModules[o];};g.fbIsModuleLoaded=function(o){return !!g.__fbeventsModules[o];};g.ensureModuleRegistered=function(o,p){if(!g.fbIsModuleLoaded(o))g.__fbeventsModules[o]=p;};}g.ensureModuleRegistered('SignalsFBEventsPlugin',function(){return function(o,p,q,r){var s={exports:{}},t=s.exports;(function(){'use strict';function u(v){this.plugin=v;this.__fbEventsPlugin=1;return this;}s.exports=u;})();return s.exports;}(a,b,c,d);});g.ensureModuleRegistered('undefined',function(){return undefined;});'use strict';var h=g.getFbeventsModules('SignalsFBEventsPlugin'),i={AUTO_CONFIG_OPT_OUT:1<<0,AUTO_CONFIG:1<<1,CONFIG_LOADING:1<<2,SUPPORTS_DEFINE_PROPERTY:1<<3,SUPPORTS_SEND_BEACON:1<<4,HAS_INVALIDATED_PII:1<<5},j=false;function k(){try{Object.defineProperty({},'test',{});}catch(o){return false;}return true;}function l(){return !!(a.navigator&&a.navigator.sendBeacon);}function m(o,p){return o?p:0;}var n=new h(function(o,p){if(j)return;var q={};o.on('pii_invalidated',function(r){if(r!=null)q[typeof r==='string'?r:r.id]=true;});o.on('getCustomParameters',function(r){if(r!=null){var s=p.optIns,t=m(s.isOptedOut(r.id,'AutomaticSetup'),i.AUTO_CONFIG_OPT_OUT),u=m(s.isOptedIn(r.id,'AutomaticSetup'),i.AUTO_CONFIG),v=m(o.disableConfigLoading!==true,i.CONFIG_LOADING),w=m(k(),i.SUPPORTS_DEFINE_PROPERTY),x=m(l(),i.SUPPORTS_SEND_BEACON),y=m(r!=null&&q[r.id],i.HAS_INVALIDATED_PII),z=t|u|v|w|x|y;return {o:z};}return {};});j=true;});n.OPTIONS=i;e.exports=n;if(g.registerPlugin)g.registerPlugin('fbevents.plugins.opttracking',e.exports);g.ensureModuleRegistered('fbevents.plugins.opttracking',function(){return e.exports;});})();return e.exports;})(window,document,location,history);

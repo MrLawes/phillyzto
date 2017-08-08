@@ -1,18 +1,15 @@
 $("#copy_shortlink").click(function(){
-
-    origin_url = 'baidu3.com'
-    short_url = 'baidu3'
-    hits = 1
-    var new_create = '{}'
-    new_create = JSON.parse(new_create)
-    new_create.origin_url = origin_url
-    new_create.short_url = short_url
-    new_create.hits = hits
-
-//    localStorage.setItem("copy_shortlink_history", "Gates");
+    var shorten_data = data_shorten()
+    errcode = shorten_data.errcode
+    if(errcode!=0){
+        layer.msg(shorten_data.errmsg);
+        return
+    }
+    var new_create = {}
+    new_create.long_url = shorten_data.data.long_url
+    new_create.hash = shorten_data.data.hash
+    new_create.url = shorten_data.data.url
     var copy_shortlink_history = localStorage.getItem("copy_shortlink_history");
-    console.log('copy_shortlink_history')
-    console.log(copy_shortlink_history)
     if(!copy_shortlink_history){
         copy_shortlink_history = '{"data":[]}'
     }
@@ -23,15 +20,6 @@ $("#copy_shortlink").click(function(){
     copy_shortlink_history.data.splice(0,0,new_create);
     copy_shortlink_history.data = copy_shortlink_history.data.slice(0,3)
     var history_string = JSON.stringify(copy_shortlink_history)
-//
-//    copy_shortlink_history.push()
-//
-//
-//    copy_shortlink_history.data.reverse()
-
     localStorage.setItem("copy_shortlink_history", history_string);
-
-
-
-
+    // # TODO vue add 下拉框
 });
