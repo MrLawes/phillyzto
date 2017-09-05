@@ -406,7 +406,15 @@ to{-webkit-filter:hue-rotate(360deg)}}.chauncey--MAIN{position:fixed;z-index:500
 }@keyframes close-sheet{0.00%{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
 100%{-webkit-transform:translate3d(100%,0,0);-moz-transform:translate3d(100%,0,0);-ms-transform:translate3d(100%,0,0);-o-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}
 }.campaign-item-detail--MAIN .actions--MAIN{position:relative;float:none;margin:3rem 0 -1rem 1.5rem}}.action-sheet--channel{border-bottom:1px solid #dde0e2;overflow:hidden;padding-bottom:1rem}
-.navigation--MAIN,.navigation--ALTERNATE,.navigation--ORG{background-color:#0e3042;overflow:visible;padding:1.5rem 0;position:relative}.navigation--MAIN .bitly-icon,.navigation--ALTERNATE .bitly-icon,.navigation--ORG .bitly-icon{color:#ee6123;display:inline-block;font-size:4rem;margin-left:2.25%}
+.navigation--MAIN,
+.navigation--ALTERNATE,.navigation--ORG{
+    height: 85px;
+    background-color:#0e3042;
+    overflow:visible;
+    padding:1.5rem 0;
+    position:relative
+}
+.navigation--MAIN .bitly-icon,.navigation--ALTERNATE .bitly-icon,.navigation--ORG .bitly-icon{color:#ee6123;display:inline-block;font-size:4rem;margin-left:2.25%}
 .navigation--MAIN .search--MAIN,.navigation--ALTERNATE .search--MAIN,.navigation--ORG .search--MAIN{width:23%;min-width:14rem;float:right}.navigation--MAIN .button--SOLID-PRIMARY,.navigation--ALTERNATE .button--SOLID-PRIMARY,.navigation--ORG .button--SOLID-PRIMARY{width:6.5%;min-width:8rem;float:right;margin:0 0 0 1.75rem}
 .navigation--MAIN .button--SOLID-SECONDARY,.navigation--ALTERNATE .button--SOLID-SECONDARY,.navigation--ORG .button--SOLID-SECONDARY{width:10%;min-width:13rem;float:right;margin:0 1.6rem}
 .navigation--MAIN .button--GHOST-PRIMARY,.navigation--ALTERNATE .button--GHOST-PRIMARY,.navigation--ORG .button--GHOST-PRIMARY{background:transparent;width:8rem;height:4rem;float:right;line-height:.6;color:#fff}
