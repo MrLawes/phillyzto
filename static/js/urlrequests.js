@@ -1,3 +1,7 @@
+function get_host(){
+    return ""
+//    return "https://staging.durls.co"
+}
 function form1_onsubmit(url){
     var result = false
     if(url.indexOf('.')>0){
@@ -17,7 +21,7 @@ function data_shorten() {
     if(!right_url){
         return
     }
-    host_url = '/data/shorten'
+    host_url = get_host() + '/data/shorten'
     var shorten_data = {}
     shorten_data.errcode = 5001
     shorten_data.errmsg = "创建失败"
@@ -48,14 +52,14 @@ function data_shorten() {
 }
 function data_clicks(hashs) {
     var long_url = document.getElementById('shorten_url').value
-    host_url = '/data/clicks'
+    host_url = get_host() + '/data/clicks'
     var result = {}
     result.data = {}
     result.data.clicks = []
     for(var i=0;i<hashs.length;i++){
         result.data.clicks[i] = {
             "hash": hashs[i],
-            "clicks": 0,
+            "clicks": 0
         }
     }
     $.ajax({
