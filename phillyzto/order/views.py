@@ -11,6 +11,9 @@ def index(request):
     return render_to_response('index.html', {})
 
 
+def login_index(request):
+    return render_to_response('user_center.html', {})
+
 def get_order_details(request, order_id):
     """ 获得订单信息
     :param request:
