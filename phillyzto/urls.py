@@ -19,12 +19,14 @@ from django.contrib import admin
 from phillyzto.order.views import login_index
 from phillyzto.order.views import index
 from phillyzto.data import urls as data_urls
+from phillyzto.proxy import urls as proxy_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^data/', include(data_urls)),
+    url(r'^proxy/', include(proxy_urls)),
     url(r'^order/', include('phillyzto.order.urls')),
     url(r'^user_center/$', login_index, name='index'),
-    url(r'', index, name='index'),
+    url(r'^$', index, name='index'),
 ]
 

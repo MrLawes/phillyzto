@@ -78,27 +78,3 @@ function data_clicks(hashs) {
     });
     return result.data.clicks
 }
-function proxy_link_history() {
-    host_url = get_host() + '/proxy/link_history'
-    var result = []
-    $.ajax({
-        url: host_url,
-        type: 'GET',
-        dataType: "json",
-        data:{
-            'limit': 50,
-            'offset':0,
-            'archived':'off'
-        },
-        success: function (data){
-            if(data.errcode!=0){
-                layer.msg(data.errmsg);
-            }
-            result = data.data
-        },
-        error: function (data){
-        },
-        async:false
-    });
-    return result
-}
