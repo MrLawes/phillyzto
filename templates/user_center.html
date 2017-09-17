@@ -497,11 +497,10 @@
         <div class="layout--wrapper" data-reactid=".0.4">
             <div id="list_main" class="list--MAIN" data-reactid=".0.4.0">
                                     <span class="list--total" data-reactid=".0.4.0.0">
-                                        <span data-reactid=".0.4.0.0.0">2</span>
+                                        <span data-reactid=".0.4.0.0.0">{{ link_history.length }}</span>
                                         <span data-reactid=".0.4.0.0.1"> </span>
-                                        <span data-reactid=".0.4.0.0.2">Bitlink</span>
-                                        <span data-reactid=".0.4.0.0.3">s</span>
-                                    </span><span class="list--filter" data-reactid=".0.4.0.1">Clicks all time</span>
+                                        <span data-reactid=".0.4.0.0.2">条链接</span>
+                                    </span><span class="list--filter" data-reactid=".0.4.0.1">总点击次数</span>
 
                 <div data-reactid=".0.4.0.2">
                     <a v-for="(hlink, hindex) in link_history" v-bind:class="bitlink_item_class(hindex)"

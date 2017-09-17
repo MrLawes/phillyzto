@@ -20,6 +20,13 @@ def proxy_link_history(request):
             "link": "http://nyti.ms/xr5jgq",
             "long_url": "http://nytimes.com/",
             "modify_at": 1331669350,
+          },
+          {
+            "archived": False,
+            "create_at": 1331669350,
+            "link": "http://nyti.ms/ll8jxq",
+            "long_url": "http://www.bing.com/",
+            "modify_at": 1331669351,
           }
         ],
         "result_count": 2
