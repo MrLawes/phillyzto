@@ -11,6 +11,7 @@
     <script src='http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js'></script>
     <script src="https://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
     <script src="/static/js/urlrequests.js"></script>
+    <script src="/static/vue/vue.js"></script>
 </head>
 
 <body>
@@ -494,7 +495,7 @@
         </div>
 
         <div class="layout--wrapper" data-reactid=".0.4">
-            <div class="list--MAIN" data-reactid=".0.4.0">
+            <div id="list_main" class="list--MAIN" data-reactid=".0.4.0">
                                     <span class="list--total" data-reactid=".0.4.0.0">
                                         <span data-reactid=".0.4.0.0.0">2</span>
                                         <span data-reactid=".0.4.0.0.1"> </span>
@@ -503,32 +504,9 @@
                                     </span><span class="list--filter" data-reactid=".0.4.0.1">Clicks all time</span>
 
                 <div data-reactid=".0.4.0.2">
-                    <a class="bitlink-item--ACTIVE" data-reactid=".0.4.0.2.1:$2vLjBvq">
-                                    <span class="bitlink-item--checkbox" data-reactid=".0.4.0.2.1:$2vLjBvq.0">
-                                        <div class="checkbox--SMALL" id="2vLjBvq"
-                                             data-reactid=".0.4.0.2.1:$2vLjBvq.0.0">
-                                            <input id="2vLjBvq" type="checkbox" class="checkbox--input"
-                                                   data-reactid=".0.4.0.2.1:$2vLjBvq.0.0.0">
-                                            <label for="2vLjBvq" class="checkmark-icon checkbox-icon"
-                                                   data-reactid=".0.4.0.2.1:$2vLjBvq.0.0.1"></label>
-                                        </div>
-                                    </span>
-                        <time class="bitlink-item--created-date" datetime="2017-08-09"
-                              data-reactid=".0.4.0.2.1:$2vLjBvq.1">Aug 9
-                        </time>
-                        <div class="bitlink-item--title" data-reactid=".0.4.0.2.1:$2vLjBvq.4">http://baidu.com/</div>
-                        <div data-reactid=".0.4.0.2.1:$2vLjBvq.5">
-                            <div class="bitlink--MAIN" tabindex="-1" data-reactid=".0.4.0.2.1:$2vLjBvq.5.0"><span
-                                    data-reactid=".0.4.0.2.1:$2vLjBvq.5.0.0">bit.ly</span><span class="bitlink--hash"
-                                                                                                data-reactid=".0.4.0.2.1:$2vLjBvq.5.0.1">/2vLjBvq</span>
-                            </div>
-                            <span class="click-count--MAIN" data-reactid=".0.4.0.2.1:$2vLjBvq.5.1"><span
-                                    data-reactid=".0.4.0.2.1:$2vLjBvq.5.1.0">0</span><span class="clicks-icon"
-                                                                                           alt="clicks-icon"
-                                                                                           data-reactid=".0.4.0.2.1:$2vLjBvq.5.1.1"></span></span>
-                        </div>
-                    </a>
-                    <a class="bitlink-item--MAIN" data-reactid=".0.4.0.2.1:$2hItHYo">
+                    <a v-for="(hlink, hindex) in link_history" v-bind:class="bitlink_item_class(hindex)"
+
+                       data-reactid=".0.4.0.2.1:$2hItHYo">
                                     <span class="bitlink-item--checkbox" data-reactid=".0.4.0.2.1:$2hItHYo.0">
                                         <div class="checkbox--SMALL" id="2hItHYo"
                                              data-reactid=".0.4.0.2.1:$2hItHYo.0.0">
@@ -540,11 +518,14 @@
                         <time class="bitlink-item--created-date" datetime="2017-08-09"
                               data-reactid=".0.4.0.2.1:$2hItHYo.1">Aug 9
                         </time>
-                        <div class="bitlink-item--title" data-reactid=".0.4.0.2.1:$2hItHYo.4">Google</div>
+                        <div class="bitlink-item--title" data-reactid=".0.4.0.2.1:$2hItHYo.4">{{
+                            hlink.long_url }}
+                        </div>
                         <div data-reactid=".0.4.0.2.1:$2hItHYo.5">
                             <div class="bitlink--MAIN" tabindex="-1" data-reactid=".0.4.0.2.1:$2hItHYo.5.0">
-                                <span data-reactid=".0.4.0.2.1:$2hItHYo.5.0.0">bit.ly</span>
-                                <span class="bitlink--hash" data-reactid=".0.4.0.2.1:$2hItHYo.5.0.1">/2hItHYo</span>
+                                <span data-reactid=".0.4.0.2.1:$2hItHYo.5.0.0"></span>
+                                <span class="bitlink--hash"
+                                      data-reactid=".0.4.0.2.1:$2hItHYo.5.0.1">{{ hlink.link }}</span>
                             </div>
                                         <span class="click-count--MAIN" data-reactid=".0.4.0.2.1:$2hItHYo.5.1">
                                             <span data-reactid=".0.4.0.2.1:$2hItHYo.5.1.0">1</span>
@@ -633,11 +614,22 @@
 </div>
 </body>
 {% endverbatim %}
+<script src="/static/js/user_center/tail.js"></script>
 <script>
     var user_center_vue = new Vue({
         el: '#main',
         data: {
             link_history: []
+        },
+        methods: {
+            bitlink_item_class: function (link_index) {
+                console.log('link_index:' + link_index)
+                if (link_index == 0) {
+                    return "bitlink-item--ACTIVE"
+                } else {
+                    return "bitlink-item--MAIN"
+                }
+            }
         }
     })
 </script>
@@ -646,6 +638,8 @@
 <script>
     var link_history = proxy_link_history()
     user_center_vue.link_history = link_history.link_history
+    {#    init_list_main(user_center_vue)#}
+    {#    list--MAIN#}
 </script>
 
 </html>
